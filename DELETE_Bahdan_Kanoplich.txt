@@ -1,0 +1,20 @@
+--1
+DELETE FROM inventory
+WHERE film_id = (SELECT film_id FROM film WHERE title = 'Drive');
+
+DELETE FROM film
+WHERE title = 'Drive';
+
+DELETE FROM actor
+WHERE (first_name = 'Ryan' AND last_name = 'Gosling')
+OR (first_name = 'Carey' AND last_name = 'Mulligan')
+OR (first_name = 'Bryan' AND last_name = 'Cranston');
+--2
+
+DELETE FROM payment
+WHERE customer_id = (SELECT customer_id FROM customer 
+WHERE first_name = 'bahdan' AND last_name = 'kanoplich' AND email = 'bahdan.kanoplich@student.ehu.lt');
+
+DELETE FROM rental
+WHERE customer_id = (SELECT customer_id FROM customer 
+WHERE first_name = 'bahdan' AND last_name = 'kanoplich' AND email = 'bahdan.kanoplich@student.ehu.lt');
